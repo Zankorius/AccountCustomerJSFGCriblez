@@ -6,7 +6,9 @@
 package ch.hegarc.ig.odi.customeraccountjsf.business;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -48,9 +50,11 @@ public class Bank {
         return cible;
     }
     
-    public void addCustomer (int number, String fn, String ln){
+    public Customer addCustomer (int number, String fn, String ln){
         Customer cust = new Customer(number,fn,ln);
         customers.add(cust);
+        
+        return cust;
     }
     
     public void addAccount (String number, String name, double rate, Customer customer){
@@ -74,8 +78,15 @@ public class Bank {
         this.name = name;
     }
 
-    public List<Customer> getCustomers() {
-        return customers;
+    
+    
+    public Map<Integer, Customer> getCustomers(){
+        HashMap<Integer, Customer> customers1 = new HashMap();
+        for (Customer cust : customers){
+            Integer num = cust.getNumber();
+            customers1.put(num, cust);
+        }
+        return customers1;
     }
 
     public void setCustomers(List<Customer> customers) {
