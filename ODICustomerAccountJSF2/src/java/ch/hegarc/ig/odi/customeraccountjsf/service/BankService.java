@@ -18,11 +18,11 @@ import javax.enterprise.context.SessionScoped;
  */
 @SessionScoped
 @Stateful
-public class Services implements Serializable{
+public class BankService implements Serializable{
     
     private Bank bank;
     
-    public Services(){
+    public BankService(){
         bank = new Bank(1, "Raiffeisen Neuchâtel");
         
         Customer cust = bank.addCustomer(1, "Jean", "Dupont");
