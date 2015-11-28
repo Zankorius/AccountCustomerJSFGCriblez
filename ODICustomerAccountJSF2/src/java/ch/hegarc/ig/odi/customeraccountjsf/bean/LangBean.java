@@ -17,6 +17,9 @@ import javax.faces.event.ValueChangeEvent;
  *
  * @author gary.criblez
  */
+
+//bean qui permet de modifier la langue dans la page
+
 @Named(value = "langBean")
 @SessionScoped
 public class LangBean implements Serializable{

@@ -11,7 +11,7 @@
             <supported-locale>en</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>ch.hegarc.ig.odi.customeraccountjsf.bundle.resources</base-name>
+            <base-name>ch.hegarc.ig.odi.customeraccountjsf.bundle.ressources</base-name>
             <var>resrc</var>
         </resource-bundle>
         <message-bundle>

@@ -5,26 +5,55 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html  
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+ >
     <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <title>JSP Page</title>
     </head>
     <body>
-        <form id="form1" name="form1" method="post" action="addClient">
-            <p>
-              <label for="nom">Nom</label>
-              <input type="text" name="nom" id="nom" />
-            </p>
-            <p>
-              <label for="prenom">Prénom</label>
-              <input type="text" name="prenom" id="prenom" />
-            </p>
+        <f:view locale="fr">
+            <h1><h:outputText value="#{resrc.adcli}"></h:outputText></h1>
             
-            <p>
-                <input type="submit" value="Valider"/>
-                <input type="reset" value="Vider"/>
-            </p>
-          </form>
+            <h:outputText value="#{resrc.pageName}"></h:outputText>
+            
+            
+            
+            <h:form id="addClient">    
+                
+                
+                
+                <h:panelGrid columns="3">
+                                     <h:outputLabel for="nom" value="#{resrc.lastName} : "></h:outputLabel>
+                    <h:inputText required="true" id="nom" value="#{customerBean.customer.lastName}" maxlength="50">
+                        <f:validateLength minimum="2"/>
+                    </h:inputText>
+                    <h:message for="nom" showDetail="true" showSummary="true"/>
+                    
+                    <h:outputLabel for="prenom" value="#{resrc.firstName} : "></h:outputLabel>
+                    <h:inputText required="true" id="prenom" value="#{customerBean.customer.firstName}" maxlength="50">
+                        <f:validateLength minimum="2"/>
+                    </h:inputText>
+                    <h:message for="prenom" showDetail="true" showSummary="true"/>
+                    
+                </h:panelGrid>
+
+                <h:commandButton rendered="#{customerBean.renderAdd}" action="#{customerBean.addCustomer}" id="ok" value="#{resrc.send}"></h:commandButton>
+                <h:commandButton rendered="#{customerBean.renderEdi}" action="#{customerBean.editCustomer}" id="editcus" value="#{resrc.editCus}"></h:commandButton>
+            </h:form>
+            
+            <br/><br/>
+            
+            <h:form id="selectLangItem">
+                <h:selectOneMenu onchange="submit()" valueChangeListener="#{langBean.langChange}">
+                    <f:selectItem itemValue="1" itemLabel="FR"/>
+                    <f:selectItem itemValue="2" itemLabel="EN"/>
+                </h:selectOneMenu>
+            </h:form>
+            
+        </f:view>
     </body>
 </html>

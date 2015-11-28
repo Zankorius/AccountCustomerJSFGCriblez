@@ -1,12 +1,60 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <h:commandButton action="createclient" value="createclient"/>
-    </h:body>
+<html  
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    >
+    <head>
+        <title>Facelet client-compte</title>
+    </head>
+    <body>
+
+        <f:view>
+
+            <h1><h:outputText value="#{resrc.pageName}"></h:outputText></h1>
+
+            <br/><br/>
+
+
+            <h:outputText value="#{resrc.cusList}"/>
+
+            <h:form id="listCli">
+                <h:dataTable id="dtEmployes" var="cus" value="#{listCustomerBean.customers}">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID"/>
+                        </f:facet>
+                        <h:outputText id="id" value="#{cus.number}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{resrc.firstName}" />
+                        </f:facet>
+                        <h:commandLink id="prenom" value="#{cus.firstName}" action="#{listCustomerBean.edit(cus)}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{resrc.lastName}"/>
+                        </f:facet>
+                        <h:outputText id="nom" value="#{cus.lastName}"/>
+                    </h:column>
+                </h:dataTable>
+                <br/><br/>
+
+                <h:outputLink value="faces/ajoutclient.jsp" ><h:outputText value="#{resrc.adcli}"></h:outputText></h:outputLink>
+
+                <br/><br/>
+            </h:form>
+
+            <h:form id="selectLangItem">
+                <h:selectOneMenu onchange="submit()" valueChangeListener="#{langBean.langChange}">
+                    <f:selectItem itemValue="1" itemLabel="FR"/>
+                    <f:selectItem itemValue="2" itemLabel="EN"/>
+                </h:selectOneMenu>
+            </h:form>
+
+        </f:view>
+    </body>
 </html>
 
