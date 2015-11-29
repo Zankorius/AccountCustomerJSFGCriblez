@@ -1,51 +1,57 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html  
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
     >
     <head>
-        <title>Facelet client-compte</title>
+        <title>View</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-
-        <f:view>
-
+        <f:view locale="fr">
             <h1><h:outputText value="#{resrc.pageName}"></h:outputText></h1>
 
-            <br/><br/>
+            <h:outputText value="#{resrc.viewcli}"></h:outputText>
 
 
-            <h:outputText value="#{resrc.cusList}"/>
 
-            <h:form id="listCli">
-                <h:dataTable id="dtEmployes" var="cus" value="#{listCustomerBean.customers}">
+            <h:form id="addClient">    
+
+
+
+                <h:panelGrid columns="3">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="ID"/>
                         </f:facet>
-                        <h:outputText id="id" value="#{cus.number}"/>
+                        <h:outputText id="id" value="#{customerBean.customer.number}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="#{resrc.firstName}" />
                         </f:facet>
-                        <h:commandLink id="prenom" value="#{cus.firstName}" action="#{listCustomerBean.edit(cus)}"/>
+                        <h:outputText id="prenom" value="#{customerBean.customerBean.customer.firstName}" />
                     </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="#{resrc.lastName}"/>
                         </f:facet>
-                        <h:outputText id="nom" value="#{cus.lastName}"/>
+                        <h:outputText id="nom" value="#{customerBean.customer.lastName}"/>
                     </h:column>
-                </h:dataTable>
-                <br/><br/>
 
-                <h:outputLink value="faces/ajoutclient.jsp" ><h:outputText value="#{resrc.adcli}"></h:outputText></h:outputLink>
+                </h:panelGrid>
 
-                <br/><br/>
+
             </h:form>
+
+            <br/><br/>
 
             <h:form id="selectLangItem">
                 <h:selectOneMenu onchange="submit()" valueChangeListener="#{langBean.langChange}">
@@ -57,4 +63,3 @@
         </f:view>
     </body>
 </html>
-

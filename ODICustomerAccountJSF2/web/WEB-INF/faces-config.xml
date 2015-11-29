@@ -19,8 +19,14 @@
         </message-bundle>
     </application>
     
+    
     <navigation-rule>
-        <from-view-id>/welcomepage.jsp</from-view-id>
+        <from-view-id>/createCustomer.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{listCustomerBean.add}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/addCustomerSuccess.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 
 </faces-config>

@@ -14,11 +14,11 @@ import javax.inject.Named;
 
 @Named(value="listCustomerBean")
 @SessionScoped
-public class ListCustomersBean implements Serializable{
+public class CustomersBean implements Serializable{
 
     private DataModel<Customer> customers;
     
-    public ListCustomersBean() {
+    public CustomersBean() {
     }
     
     public DataModel<Customer> getCustomers() {
@@ -37,13 +37,7 @@ public class ListCustomersBean implements Serializable{
         return "success";
     }
     
-    public String edit(Customer customer) {
-        AddCustomerBean editCusomerBean = Tools.findBean("customerBean", AddCustomerBean.class);
-        editCusomerBean.setCustomer(customer);
-        editCusomerBean.setRenderAdd(false);
-        editCusomerBean.setRenderEdi(true);
-        return "edit";
-    }
+    
     
     
 }

@@ -7,6 +7,7 @@ package ch.hegarc.ig.odi.customeraccountjsf.bean;
 
 import ch.hegarc.ig.odi.customeraccountjsf.business.Customer;
 import ch.hegarc.ig.odi.customeraccountjsf.service.BankService;
+import ch.hegarc.ig.odi.customeraccountjsf.service.Tools;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -16,15 +17,15 @@ import java.util.List;
  *
  * @author gary.criblez
  */
-@Named(value = "addCustomerBean")
+@Named(value = "customerBean")
 @SessionScoped
-public class AddCustomerBean implements Serializable{
+public class CustomerBean implements Serializable{
     
     private Customer customer;
     private boolean renderAdd; 
     private boolean renderEdi;
     
-    public AddCustomerBean() {
+    public CustomerBean() {
         customer = new Customer();
         renderAdd = true;
         renderEdi = false;
@@ -62,5 +63,16 @@ public class AddCustomerBean implements Serializable{
         System.out.println("BANK REGISTRY\r\n" + bs.toString());
     }
     
+    public String edit(Customer customer) {
+        CustomerBean editCusomerBean = Tools.findBean("customerBean", CustomerBean.class);
+        editCusomerBean.setCustomer(customer);
+        editCusomerBean.setRenderAdd(false);
+        editCusomerBean.setRenderEdi(true);
+        return "edit";
+    }
+    
+    public void view(Customer cust) {
+        
+    }
     
 }
