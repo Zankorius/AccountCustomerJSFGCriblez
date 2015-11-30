@@ -16,11 +16,14 @@ and open the template in the editor.
     </head>
     <body>
         <f:view>
+            
+            
             <h:outputText value="#{resrc.clientSuccess}"></h:outputText>
             
             <br></br>
             
             <h:outputLink value="faces/customerList.xhtml" ><h:outputText value="#{resrc.index}"></h:outputText></h:outputLink>
+            <br></br>
             
             <h:form id="selectLangItem">
                 <h:selectOneMenu onchange="submit()" valueChangeListener="#{langBean.langChange}">

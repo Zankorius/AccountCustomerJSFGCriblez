@@ -18,12 +18,13 @@ public class CustomersBean implements Serializable{
     private DataModel<Customer> customers;
     
     public CustomersBean() {
-        customers = new ListDataModel<>();
-        BankService bs = new BankService();
-        customers.setWrappedData(bs.getCustomersList());
+        
     }
     
     public DataModel<Customer> getCustomers() {
+        customers = new ListDataModel<>();
+        BankService bs = new BankService();
+        customers.setWrappedData(bs.getCustomersList());
         return customers;
     }
     
