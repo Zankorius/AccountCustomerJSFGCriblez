@@ -9,9 +9,10 @@ import ch.hegarc.ig.odi.customeraccountjsf.business.Account;
 import ch.hegarc.ig.odi.customeraccountjsf.business.Customer;
 import ch.hegarc.ig.odi.customeraccountjsf.service.BankService;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.inject.Inject;
 
@@ -20,7 +21,7 @@ import javax.inject.Inject;
  * @author gary.criblez
  */
 @Named(value = "custBean")
-@SessionScoped
+@RequestScoped
 public class CustomerBean implements Serializable {
     
     @Inject

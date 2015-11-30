@@ -8,7 +8,8 @@ package ch.hegarc.ig.odi.customeraccountjsf.bean;
 import ch.hegarc.ig.odi.customeraccountjsf.business.Account;
 import ch.hegarc.ig.odi.customeraccountjsf.service.BankService;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 /**
@@ -16,7 +17,7 @@ import javax.inject.Inject;
  * @author gary.criblez
  */
 @Named(value = "accountBean")
-@Dependent
+@RequestScoped
 public class AccountBean {
 
     @Inject
