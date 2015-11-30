@@ -13,6 +13,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.model.DataModel;
+import javax.inject.Inject;
 
 /**
  *
@@ -21,9 +22,12 @@ import javax.faces.model.DataModel;
 @Named(value = "custBean")
 @SessionScoped
 public class CustomerBean implements Serializable {
+    
+    @Inject
+    BankService bs;
 
     private Customer customer;
-    private DataModel<Account> accounts;
+   
     
     
     public CustomerBean() {
@@ -38,19 +42,13 @@ public class CustomerBean implements Serializable {
         return this.customer;
     }
 
-    public DataModel<Account> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(DataModel<Account> accounts) {
-        this.accounts = accounts;
-    }
+    
     
     
     
     public String addCustomer() {
         
-        BankService bs = new BankService();
+        
         bs.saveCustomer(bs.getCustomersList().size()+1, customer.getFirstName(), customer.getLastName());
         
         return "success";

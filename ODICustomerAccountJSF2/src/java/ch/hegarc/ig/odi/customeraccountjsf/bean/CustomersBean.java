@@ -7,6 +7,7 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 
 import javax.faces.model.*;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 //bean pour gérer la liste des clients
@@ -14,6 +15,9 @@ import javax.inject.Named;
 @Named(value="listCustomerBean")
 @SessionScoped
 public class CustomersBean implements Serializable{
+    
+    @Inject
+    BankService bs;
 
     private DataModel<Customer> customers;
     
@@ -23,7 +27,6 @@ public class CustomersBean implements Serializable{
     
     public DataModel<Customer> getCustomers() {
         customers = new ListDataModel<>();
-        BankService bs = new BankService();
         customers.setWrappedData(bs.getCustomersList());
         return customers;
     }
