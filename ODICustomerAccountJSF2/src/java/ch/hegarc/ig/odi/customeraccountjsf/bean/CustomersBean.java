@@ -24,6 +24,16 @@ public class CustomersBean implements Serializable{
     public CustomersBean() {
         
     }
+
+    public BankService getBs() {
+        return bs;
+    }
+
+    public void setBs(BankService bs) {
+        this.bs = bs;
+    }
+    
+    
     
     public DataModel<Customer> getCustomers() {
         customers = new ListDataModel<>();

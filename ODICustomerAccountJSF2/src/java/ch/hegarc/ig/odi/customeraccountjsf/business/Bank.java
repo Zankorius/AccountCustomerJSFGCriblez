@@ -6,6 +6,7 @@
 package ch.hegarc.ig.odi.customeraccountjsf.business;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import java.util.Map;
  * @author gary.criblez
  */
 public class Bank {
+
     private int number;
     private String name;
     private List<Customer> customers;
@@ -26,8 +28,8 @@ public class Bank {
         this.customers = new ArrayList();
         this.accounts = new ArrayList();
     }
-    
-    public Account getAccountByNumber(String number){
+
+    public Account getAccountByNumber(String number) {
         Account cible = null;
         Integer i = 0;
         while (cible == null & i < accounts.size()) {
@@ -36,29 +38,29 @@ public class Bank {
             }
         }
         return cible;
-        
+
     }
-    
-    public Customer getCustomerByNumber (int number){
+
+    public Customer getCustomerByNumber(int number) {
         Customer cible = null;
         Integer i = 0;
         while (cible == null & i < customers.size()) {
-            if (customers.get(i).getNumber()==number) {
+            if (customers.get(i).getNumber() == number) {
                 cible = customers.get(i);
             }
         }
         return cible;
     }
-    
-    public Customer addCustomer (int number, String fn, String ln){
-        Customer cust = new Customer(number,fn,ln);
+
+    public Customer addCustomer(int number, String fn, String ln) {
+        Customer cust = new Customer(number, fn, ln);
         customers.add(cust);
-        
+
         return cust;
     }
-    
-    public void addAccount (String number, String name, double rate, Customer customer){
-        Account acc = new Account(number,name,rate,customer);
+
+    public void addAccount(String number, String name, double rate, Customer customer) {
+        Account acc = new Account(number, name, rate, customer);
         accounts.add(acc);
     }
 
@@ -78,11 +80,9 @@ public class Bank {
         this.name = name;
     }
 
-    
-    
-    public Map<Integer, Customer> getCustomers(){
+    public Map<Integer, Customer> getCustomers() {
         HashMap<Integer, Customer> customers1 = new HashMap();
-        for (Customer cust : customers){
+        for (Customer cust : customers) {
             Integer num = cust.getNumber();
             customers1.put(num, cust);
         }
@@ -100,9 +100,15 @@ public class Bank {
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
     }
-    
-    
-    
-    
-    
+
+    public Collection<Account> getAccountsByCustomer(Customer customer) {
+        Collection<Account> accountsByCustomer = new ArrayList<>();
+        for (Account account : accounts) {
+            if (account.customer.getNumber() == customer.getNumber()) {
+                accountsByCustomer.add(account);
+            }
+        }
+        return accountsByCustomer;
+    }
+
 }

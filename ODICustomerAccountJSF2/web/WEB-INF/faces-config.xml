@@ -36,5 +36,13 @@
             <to-view-id>/viewCustomer.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/viewCustomer.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{accountBean.viewAccount(acc)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/viewAccount.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>

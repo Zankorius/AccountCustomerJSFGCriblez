@@ -27,12 +27,23 @@ public class CustomerBean implements Serializable {
     BankService bs;
 
     private Customer customer;
+    
    
     
     
     public CustomerBean() {
         customer = new Customer();
     }
+
+    public BankService getBs() {
+        return bs;
+    }
+
+    public void setBs(BankService bs) {
+        this.bs = bs;
+    }
+    
+    
     
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -42,9 +53,11 @@ public class CustomerBean implements Serializable {
         return this.customer;
     }
 
-    
-    
-    
+    public void getAccounts() {
+         customer.setAccounts(bs.getAccountsByCustomer(customer));
+    }
+
+ 
     
     public String addCustomer() {
         
@@ -56,9 +69,10 @@ public class CustomerBean implements Serializable {
     }
     
     public String viewCustomer(Customer cust){
-        setCustomer(cust);
+        customer = bs.getCustomer(cust.getNumber());
         return "success";
     }
+    
     
     
     
