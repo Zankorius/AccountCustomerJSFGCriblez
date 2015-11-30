@@ -23,33 +23,61 @@ and open the template in the editor.
 
 
             <h:form id="addClient">    
-
-
-
                 <h:panelGrid columns="3">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="ID"/>
                         </f:facet>
-                        <h:outputText id="id" value="#{customerBean.customer.number}"/>
+                        <h:commandLink id="id" value="#{custBean.customer.number}" />
                     </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="#{resrc.firstName}" />
                         </f:facet>
-                        <h:outputText id="prenom" value="#{customerBean.customer.firstName}" />
+                        <h:outputText id="prenom" value="#{custBean.customer.firstName}" />
                     </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="#{resrc.lastName}"/>
                         </f:facet>
-                        <h:outputText id="nom" value="#{customerBean.customer.lastName}"/>
+                        <h:outputText id="nom" value="#{custBean.customer.lastName}"/>
                     </h:column>
-
                 </h:panelGrid>
 
-
             </h:form>
+
+
+            <h:outputText value="#{resrc.cusAcc}"/>
+
+            <h:form id="listCli">
+                <h:dataTable id="dtEmployes" var="acc" value="#{custBean.accounts}">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID"/>
+                        </f:facet>
+                        <h:commandLink id="idacc" value="#{acc.number}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Libelle" />
+                        </f:facet>
+                        <h:outputText id="libelle" value="#{acc.name}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{resrc.balance}"/>
+                        </f:facet>
+                        <h:outputText id="solde" value="#{acc.balance}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{resrc.rate}"/>
+                        </f:facet>
+                        <h:outputText id="taux" value="#{acc.rate}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:outputLink value="faces/customerList.xhtml" ><h:outputText value="#{resrc.index}"></h:outputText></h:outputLink>
 
             <br/><br/>
 

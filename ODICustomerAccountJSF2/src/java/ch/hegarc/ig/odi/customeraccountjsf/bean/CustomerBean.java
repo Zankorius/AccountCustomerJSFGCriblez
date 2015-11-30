@@ -5,12 +5,14 @@
  */
 package ch.hegarc.ig.odi.customeraccountjsf.bean;
 
+import ch.hegarc.ig.odi.customeraccountjsf.business.Account;
 import ch.hegarc.ig.odi.customeraccountjsf.business.Customer;
 import ch.hegarc.ig.odi.customeraccountjsf.service.BankService;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.faces.model.DataModel;
 
 /**
  *
@@ -21,6 +23,7 @@ import java.util.List;
 public class CustomerBean implements Serializable {
 
     private Customer customer;
+    private DataModel<Account> accounts;
     
     
     public CustomerBean() {
@@ -34,11 +37,21 @@ public class CustomerBean implements Serializable {
     public Customer getCustomer() {
         return this.customer;
     }
+
+    public DataModel<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(DataModel<Account> accounts) {
+        this.accounts = accounts;
+    }
+    
+    
     
     public String addCustomer() {
         
         BankService bs = new BankService();
-        bs.saveCustomer(customer.getNumber(), customer.getFirstName(), customer.getLastName());
+        bs.saveCustomer(bs.getCustomersList().size()+1, customer.getFirstName(), customer.getLastName());
         
         return "success";
         
@@ -48,6 +61,8 @@ public class CustomerBean implements Serializable {
         setCustomer(cust);
         return "success";
     }
+    
+    
     
     
 }

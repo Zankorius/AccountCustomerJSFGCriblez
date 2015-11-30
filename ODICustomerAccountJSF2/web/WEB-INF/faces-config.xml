@@ -31,7 +31,7 @@
     <navigation-rule>
         <from-view-id>/customerList.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{custBean.view}</from-action>
+            <from-action>#{custBean.viewCustomer(cus)}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/viewCustomer.xhtml</to-view-id>
         </navigation-case>

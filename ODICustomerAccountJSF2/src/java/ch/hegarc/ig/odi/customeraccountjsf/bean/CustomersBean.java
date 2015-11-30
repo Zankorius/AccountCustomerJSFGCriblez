@@ -3,7 +3,6 @@ package ch.hegarc.ig.odi.customeraccountjsf.bean;
 
 import ch.hegarc.ig.odi.customeraccountjsf.business.Customer;
 import ch.hegarc.ig.odi.customeraccountjsf.service.BankService;
-import ch.hegarc.ig.odi.customeraccountjsf.service.Tools;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 
@@ -19,13 +18,12 @@ public class CustomersBean implements Serializable{
     private DataModel<Customer> customers;
     
     public CustomersBean() {
-    }
-    
-    public DataModel<Customer> getCustomers() {
         customers = new ListDataModel<>();
         BankService bs = new BankService();
         customers.setWrappedData(bs.getCustomersList());
-        
+    }
+    
+    public DataModel<Customer> getCustomers() {
         return customers;
     }
     
