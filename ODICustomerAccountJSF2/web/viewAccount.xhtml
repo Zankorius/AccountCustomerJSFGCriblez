@@ -18,42 +18,35 @@ and open the template in the editor.
         <f:view>
             <h1><h:outputText value="#{resrc.pageName}"></h:outputText></h1>
 
-            <h:outputText value="#{resrc.viewcli}"></h:outputText>
+            <h:outputText value="#{resrc.viewacc}"></h:outputText>
 
 
 
             <h:form id="viewAcc">    
-                <h:panelGrid columns="3">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="ID"/>
-                        </f:facet>
-                        <h:commandLink id="id" value="#{accountBean.account.number}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Libelle" />
-                        </f:facet>
-                        <h:outputText id="libelle" value="#{accountBean.account.name}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{resrc.balance}"/>
-                        </f:facet>
-                        <h:outputText id="solde" value="#{accountBean.account.balance}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{resrc.rate}"/>
-                        </f:facet>
-                        <h:outputText id="taux" value="#{accountBean.account.rate}"/>
-                    </h:column>
+                <h:panelGrid columns="2">
+
+                    <h:outputLabel value="ID"/>
+
+                    <h:outputText id="id" value="#{accountBean.account.number}" />
+
+                    <h:outputLabel value="Libelle" />
+
+                    <h:outputText id="libelle" value="#{accountBean.account.name}" />
+
+                    <h:outputLabel value="#{resrc.balance}"/>
+
+                    <h:outputText id="solde" value="#{accountBean.account.balance}"/>
+
+                    <h:outputLabel value="#{resrc.rate}"/>
+
+                    <h:outputText id="taux" value="#{accountBean.account.rate}"/>
+
                 </h:panelGrid>
 
             </h:form>
-            
+
             <h:form>
-            <h:commandButton id="index" value="#{resrc.index}" action="home"/>
+                <h:commandButton id="index" value="#{resrc.index}" action="home"/>
             </h:form>
 
             <br/><br/>

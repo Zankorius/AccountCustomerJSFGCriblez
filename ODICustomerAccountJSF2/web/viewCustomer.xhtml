@@ -23,34 +23,28 @@ and open the template in the editor.
 
 
             <h:form id="viewCust">    
-                <h:panelGrid columns="3">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="ID"/>
-                        </f:facet>
-                        <h:commandLink id="id" value="#{custBean.customer.number}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{resrc.firstName}" />
-                        </f:facet>
-                        <h:outputText id="prenom" value="#{custBean.customer.firstName}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{resrc.lastName}"/>
-                        </f:facet>
-                        <h:outputText id="nom" value="#{custBean.customer.lastName}"/>
-                    </h:column>
+                <h:panelGrid columns="2">
+
+                    <h:outputLabel value="ID"/>
+
+                    <h:outputText id="id" value="#{custBean.customer.number}" />
+
+                    <h:outputLabel value="#{resrc.firstName}" />
+
+                    <h:outputText id="prenom" value="#{custBean.customer.firstName}" />
+
+                    <h:outputLabel value="#{resrc.lastName}"/>
+
+                    <h:outputText id="nom" value="#{custBean.customer.lastName}"/>
+
                 </h:panelGrid>
 
             </h:form>
-            
+
             <br/><br/>
 
             <h:outputText value="#{resrc.cusAcc}"/>
-            
-            <br/><br/>
+
 
             <h:form id="listAcc">
                 <h:dataTable id="dtEmployes" var="acc" value="#{custBean.customer.accounts}">
@@ -80,11 +74,11 @@ and open the template in the editor.
                     </h:column>
                 </h:dataTable>
             </h:form>
-            
+
             <h:form>
-            <h:commandButton id="index" value="#{resrc.index}" action="home"/>
+                <h:commandButton id="index" value="#{resrc.index}" action="home"/>
             </h:form>
-            
+
             <br/><br/>
 
             <h:form id="selectLangItem">
