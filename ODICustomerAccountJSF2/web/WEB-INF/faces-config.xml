@@ -27,6 +27,10 @@
             <from-outcome>success</from-outcome>
             <to-view-id>/addCustomerSuccess.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>home</from-action>
+            <to-view-id>/customerList.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/customerList.xhtml</from-view-id>
@@ -42,6 +46,10 @@
             <from-action>#{accountBean.viewAccount(acc)}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/viewAccount.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>home</from-action>
+            <to-view-id>/customerList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 

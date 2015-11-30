@@ -46,6 +46,7 @@ public class AccountBean {
     }
     
     public String viewAccount(Account acc){
+        account = new Account();
         account = bs.getAccountByNumber(acc.getNumber());
         return "success";
     }

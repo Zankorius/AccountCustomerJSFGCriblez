@@ -15,7 +15,7 @@ and open the template in the editor.
         <title>JSP Page</title>
     </head>
     <body>
-        <f:view locale="fr">
+        <f:view>
             <h1><h:outputText value="#{resrc.pageName}"></h:outputText></h1>
             
             <h:outputText value="#{resrc.addcli}"></h:outputText>
@@ -46,7 +46,9 @@ and open the template in the editor.
             </h:form>
             
             <br/><br/>
-            
+            <h:form>
+                <h:commandButton  action="home" id="index" value="#{resrc.index}"></h:commandButton>
+            </h:form>
             <h:form id="selectLangItem">
                 <h:selectOneMenu onchange="submit()" valueChangeListener="#{langBean.langChange}">
                     <f:selectItem itemValue="1" itemLabel="FR"/>

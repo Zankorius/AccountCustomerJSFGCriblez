@@ -69,6 +69,7 @@ public class CustomerBean implements Serializable {
     }
     
     public String viewCustomer(Customer cust){
+        customer = new Customer();
         customer = bs.getCustomer(cust.getNumber());
         return "success";
     }
