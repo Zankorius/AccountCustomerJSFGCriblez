@@ -14,6 +14,8 @@ import javax.inject.Inject;
  *
  * @author gary.criblez
  */
+
+//bean pour gérer la creation client
 @Named(value = "addCustomerBean")
 @RequestScoped
 public class addCustomerBean {

@@ -17,6 +17,8 @@ import javax.inject.Inject;
  *
  * @author gary.criblez
  */
+
+//bean pour la vue du compte
 @Named(value = "accountBean")
 @RequestScoped
 public class AccountBean {

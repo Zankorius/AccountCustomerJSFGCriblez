@@ -21,6 +21,8 @@ import javax.inject.Inject;
  *
  * @author gary.criblez
  */
+
+//bean pour la vue du client
 @Named(value = "custBean")
 @RequestScoped
 public class CustomerBean implements Serializable {

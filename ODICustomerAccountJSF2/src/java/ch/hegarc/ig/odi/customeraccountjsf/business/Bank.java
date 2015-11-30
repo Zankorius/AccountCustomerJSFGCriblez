@@ -29,7 +29,7 @@ public class Bank {
         this.accounts = new ArrayList();
     }
     
-
+    //permet de récuperer un compte par l'id
     public Account getAccountByNumber(String number) {
         Account cible = null;
         Integer i = 0;
@@ -43,7 +43,7 @@ public class Bank {
     }
 
     
-    
+    //permet de récuperer un client par l'id
     public Customer getCustomerByNumber(int number) {
         Customer cible = null;
         Integer i = 0;
@@ -82,7 +82,7 @@ public class Bank {
     public void setName(String name) {
         this.name = name;
     }
-
+    //récupération des clients dans une map
     public Map<Integer, Customer> getCustomers() {
         HashMap<Integer, Customer> customers1 = new HashMap();
         for (Customer cust : customers) {
@@ -104,6 +104,7 @@ public class Bank {
         this.accounts = accounts;
     }
 
+    //permet de récuperer les comptes en passant le client
     public Collection<Account> getAccountsByCustomer(Customer customer) {
         Collection<Account> accountsByCustomer = new ArrayList<>();
         for (Account account : accounts) {
