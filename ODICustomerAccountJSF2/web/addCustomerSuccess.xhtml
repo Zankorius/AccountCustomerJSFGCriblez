@@ -5,12 +5,31 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html  
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+ >
     <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Success</title>
     </head>
     <body>
-        <div>TODO write content</div>
+        <f:view>
+            <h:outputText value="#{resrc.clientSuccess}"></h:outputText>
+            
+            <br></br>
+            
+            <h:outputLink value="faces/customerList.xhtml" ><h:outputText value="#{resrc.index}"></h:outputText></h:outputLink>
+            
+            <h:form id="selectLangItem">
+                <h:selectOneMenu onchange="submit()" valueChangeListener="#{langBean.langChange}">
+                    <f:selectItem itemValue="1" itemLabel="FR"/>
+                    <f:selectItem itemValue="2" itemLabel="EN"/>
+                </h:selectOneMenu>
+            </h:form>
+            
+            
+        </f:view>
     </body>
 </html>

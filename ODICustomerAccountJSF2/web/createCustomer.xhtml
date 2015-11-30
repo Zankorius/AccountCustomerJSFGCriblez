@@ -28,19 +28,20 @@ and open the template in the editor.
                 
                 <h:panelGrid columns="3">
                                      <h:outputLabel for="nom" value="#{resrc.lastName} : "></h:outputLabel>
-                    <h:inputText required="true" id="nom" value="#{customerBean.customer.lastName}" maxlength="50">
+                    <h:inputText required="true" id="nom" value="#{custBean.customer.lastName}" maxlength="50">
                         <f:validateLength minimum="2"/>
                     </h:inputText>
                     <h:message for="nom" showDetail="true" showSummary="true"/>
                     
                     <h:outputLabel for="prenom" value="#{resrc.firstName} : "></h:outputLabel>
-                    <h:inputText required="true" id="prenom" value="#{customerBean.customer.firstName}" maxlength="50">
+                    <h:inputText required="true" id="prenom" value="#{custBean.customer.firstName}" maxlength="50">
                         <f:validateLength minimum="2"/>
                     </h:inputText>
                     <h:message for="prenom" showDetail="true" showSummary="true"/>
                     
                 </h:panelGrid>
-
+                
+                <h:commandButton  action="#{custBean.addCustomer}" id="ok" value="#{resrc.send}"></h:commandButton>
                
             </h:form>
             
