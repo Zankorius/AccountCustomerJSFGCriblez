@@ -26,6 +26,7 @@ public class AccountBean {
     
     private Account account;
     
+    //on récupére le compte qui sera afficher
     @PostConstruct
     public void init() {
         account = bs.getAccEdit();

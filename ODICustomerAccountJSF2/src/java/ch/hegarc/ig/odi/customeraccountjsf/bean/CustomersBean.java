@@ -33,6 +33,8 @@ public class CustomersBean implements Serializable{
     public void setBs(BankService bs) {
         this.bs = bs;
     }
+    
+    //récupération de la liste client
     @PostConstruct
     public void init(){
         customers = new ListDataModel<>();
@@ -53,6 +55,7 @@ public class CustomersBean implements Serializable{
         return "success";
     }
     
+    //permet de rediriger sur la vue client en passant le client a afficher
     public String viewCustomer(Customer cust){
         bs.setCustEdit(cust);
         return "success";

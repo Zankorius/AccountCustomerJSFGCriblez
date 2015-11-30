@@ -24,7 +24,9 @@ import javax.enterprise.context.SessionScoped;
 public class BankService implements Serializable {
 
     private Bank bank;
+    //sert pour récupérer le client pour la vue
     private Customer custEdit = null;
+    // sert pour récupérer le compte pour la vue
     private Account accEdit = null;
    
 
@@ -93,6 +95,7 @@ public class BankService implements Serializable {
         return bank.getAccountsByCustomer(customer);
     }
     
+    //récupération d'un compte par son id
     public Account getAccountByNumber(String number){
         return bank.getAccountByNumber(number);
     }

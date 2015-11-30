@@ -31,7 +31,7 @@ public class CustomerBean implements Serializable {
     private Customer customer;
     
    
-    
+    //on récupére le client qui sera afficher et ses comptes
     @PostConstruct
     public void init() {
         customer = bs.getCustEdit();
@@ -55,6 +55,7 @@ public class CustomerBean implements Serializable {
         return this.customer;
     }
     
+    //permet de rediriger sur la vue compte en passant le compte a afficher
     public String viewAccount(Account acc){
         bs.setAccEdit(bs.getAccountByNumber(acc.getNumber()));
         return "success";
