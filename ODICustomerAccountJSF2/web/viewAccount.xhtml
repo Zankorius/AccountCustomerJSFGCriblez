@@ -52,7 +52,9 @@ and open the template in the editor.
 
             </h:form>
             
-            <h:outputLink value="faces/customerList.xhtml" ><h:outputText value="#{resrc.index}"></h:outputText></h:outputLink>
+            <h:form>
+            <h:commandButton id="index" value="#{resrc.index}" action="home"/>
+            </h:form>
 
             <br/><br/>
 

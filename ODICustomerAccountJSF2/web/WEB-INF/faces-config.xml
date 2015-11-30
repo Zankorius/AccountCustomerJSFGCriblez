@@ -52,5 +52,12 @@
             <to-view-id>/customerList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/viewAccount.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>home</from-action>
+            <to-view-id>/customerList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>
