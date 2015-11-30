@@ -7,6 +7,7 @@ package ch.hegarc.ig.odi.customeraccountjsf.bean;
 
 import ch.hegarc.ig.odi.customeraccountjsf.business.Account;
 import ch.hegarc.ig.odi.customeraccountjsf.service.BankService;
+import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import javax.enterprise.context.RequestScoped;
@@ -25,7 +26,10 @@ public class AccountBean {
     
     private Account account;
     
-    public AccountBean() {
+    @PostConstruct
+    public void init() {
+        account = bs.getAccEdit();
+        
     }
 
     public BankService getBs() {
@@ -46,10 +50,6 @@ public class AccountBean {
         this.account = account;
     }
     
-    public String viewAccount(Account acc){
-        account = new Account();
-        account = bs.getAccountByNumber(acc.getNumber());
-        return "success";
-    }
+    
     
 }
