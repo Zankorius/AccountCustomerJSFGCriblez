@@ -4,6 +4,7 @@ package ch.hegarc.ig.odi.customeraccountjsf.bean;
 import ch.hegarc.ig.odi.customeraccountjsf.business.Customer;
 import ch.hegarc.ig.odi.customeraccountjsf.service.BankService;
 import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 
@@ -23,9 +24,7 @@ public class CustomersBean implements Serializable{
 
     private DataModel<Customer> customers;
     
-    public CustomersBean() {
-        
-    }
+    
 
     public BankService getBs() {
         return bs;
@@ -34,12 +33,15 @@ public class CustomersBean implements Serializable{
     public void setBs(BankService bs) {
         this.bs = bs;
     }
-    
+    @PostConstruct
+    public void init(){
+        customers = new ListDataModel<>();
+        customers.setWrappedData(bs.getCustomersList());
+    }
     
     
     public DataModel<Customer> getCustomers() {
-        customers = new ListDataModel<>();
-        customers.setWrappedData(bs.getCustomersList());
+        
         return customers;
     }
     
@@ -51,7 +53,10 @@ public class CustomersBean implements Serializable{
         return "success";
     }
     
-    
+    public String viewCustomer(Customer cust){
+        bs.setCustEdit(cust);
+        return "success";
+    }
     
     
 }

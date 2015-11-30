@@ -24,6 +24,9 @@ import javax.enterprise.context.SessionScoped;
 public class BankService implements Serializable {
 
     private Bank bank;
+    private Customer custEdit = null;
+    private Account accEdit = null;
+   
 
     public BankService() {
         bank = new Bank(1, "Raiffeisen Neuchâtel");
@@ -93,6 +96,34 @@ public class BankService implements Serializable {
     public Account getAccountByNumber(String number){
         return bank.getAccountByNumber(number);
     }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    public Customer getCustEdit() {
+        return custEdit;
+    }
+
+    public void setCustEdit(Customer custEdit) {
+        this.custEdit = custEdit;
+    }
+
+    public Account getAccEdit() {
+        return accEdit;
+    }
+
+    public void setAccEdit(Account accEdit) {
+        this.accEdit = accEdit;
+    }
+
+    
+    
+   
 
     
 }

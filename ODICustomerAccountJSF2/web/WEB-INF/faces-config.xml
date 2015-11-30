@@ -23,7 +23,7 @@
     <navigation-rule>
         <from-view-id>/createCustomer.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{custBean.addCustomer}</from-action>
+            <from-action>#{addCustomerBean.addCustomer}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/addCustomerSuccess.xhtml</to-view-id>
         </navigation-case>
@@ -32,18 +32,20 @@
             <to-view-id>/customerList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/customerList.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{custBean.viewCustomer(cus)}</from-action>
+            <from-action>#{listCustomerBean.viewCustomer(cus)}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/viewCustomer.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/viewCustomer.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{accountBean.viewAccount(acc)}</from-action>
+            <from-action>#{custBean.viewAccount(acc)}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/viewAccount.xhtml</to-view-id>
         </navigation-case>
@@ -52,6 +54,7 @@
             <to-view-id>/customerList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/viewAccount.xhtml</from-view-id>
         <navigation-case>

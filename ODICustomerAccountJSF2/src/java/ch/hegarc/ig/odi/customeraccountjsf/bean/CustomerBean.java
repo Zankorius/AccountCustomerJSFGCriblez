@@ -12,6 +12,7 @@ import javax.inject.Named;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.inject.Inject;
@@ -31,9 +32,10 @@ public class CustomerBean implements Serializable {
     
    
     
-    
-    public CustomerBean() {
-        customer = new Customer();
+    @PostConstruct
+    public void init() {
+        customer = bs.getCustEdit();
+        customer.setAccounts(bs.getAccountsByCustomer(customer));
     }
 
     public BankService getBs() {
@@ -45,7 +47,6 @@ public class CustomerBean implements Serializable {
     }
     
     
-    
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
@@ -53,27 +54,11 @@ public class CustomerBean implements Serializable {
     public Customer getCustomer() {
         return this.customer;
     }
-
-    public void getAccounts() {
-         customer.setAccounts(bs.getAccountsByCustomer(customer));
-    }
-
- 
     
-    public String addCustomer() {
-        
-        
-        bs.saveCustomer(bs.getCustomersList().size()+1, customer.getFirstName(), customer.getLastName());
-        
+    public String viewAccount(Account acc){
+        bs.setAccEdit(bs.getAccountByNumber(acc.getNumber()));
         return "success";
-        
-    }
-    
-    public String viewCustomer(Customer cust){
-        customer = new Customer();
-        customer = bs.getCustomer(cust.getNumber());
-        return "success";
-    }
+    }   
     
     
     
