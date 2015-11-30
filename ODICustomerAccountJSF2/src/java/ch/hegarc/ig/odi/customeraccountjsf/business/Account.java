@@ -8,13 +8,22 @@ public class Account {
     private double balance = 0;
     private double rate = 0.001;
 
+   
+
     /**
      *
      * @param number
      * @param name
      * @param rate
      * @param customer
+     * 
      */
+    
+     public Account() {
+    }
+    
+    
+    
     public Account(String number, String name, double rate, Customer customer) {
         this.number = number;
         this.name = name;

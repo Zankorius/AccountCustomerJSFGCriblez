@@ -28,6 +28,7 @@ public class Bank {
         this.customers = new ArrayList();
         this.accounts = new ArrayList();
     }
+    
 
     public Account getAccountByNumber(String number) {
         Account cible = null;
@@ -41,6 +42,8 @@ public class Bank {
 
     }
 
+    
+    
     public Customer getCustomerByNumber(int number) {
         Customer cible = null;
         Integer i = 0;
