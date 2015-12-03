@@ -7,10 +7,12 @@ package ch.hegarc.ig.odi.customeraccountjsf.bean;
 
 import ch.hegarc.ig.odi.customeraccountjsf.business.Account;
 import ch.hegarc.ig.odi.customeraccountjsf.service.BankService;
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
@@ -20,8 +22,8 @@ import javax.inject.Inject;
 
 //bean pour la vue du compte
 @Named(value = "accountBean")
-@RequestScoped
-public class AccountBean {
+@SessionScoped
+public class AccountBean implements Serializable{
 
     @Inject
     BankService bs;

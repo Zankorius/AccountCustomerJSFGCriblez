@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.inject.Inject;
 
@@ -24,7 +25,7 @@ import javax.inject.Inject;
 
 //bean pour la vue du client
 @Named(value = "custBean")
-@RequestScoped
+@SessionScoped
 public class CustomerBean implements Serializable {
     
     @Inject
